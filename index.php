@@ -50,7 +50,7 @@ if (isset($_POST['submit'])){
 
 
     if (mysqli_query($connection, $sql)) {
-      echo "New record created successfully";
+      echo "";
     } else {
       echo "Error: " . $sql . "<br>" . mysqli_error($connection);
     }
@@ -67,91 +67,128 @@ if (isset($_POST['submit'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vertical Calculator</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
+    <style>
+.form-inline {  
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  /* background-color: #fff; */
+  border: 1px solid #ddd;
+}
+
+.break {
+  flex-basis: 100%;
+  width: 0;
+}
+
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+  
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media
+only screen and (max-width: 1500px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    display: block;
+  }
+  tr { border: 1px solid #ccc;  display: block;}
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 200px;
+    margin-left: 150px;
+    display: block;
+  }
+  td:before {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 200px;
+    padding-right: 40px;
+    white-space: nowrap;
+    margin-left: -150px;
+    display: block;
+  }
+  td:nth-of-type(1):before { content: "Date1"; }
+  td:nth-of-type(2):before { content: "Date2"; }
+  td:nth-of-type(3):before { content: "Input1"; }
+  td:nth-of-type(4):before { content: "Input2";}
+  td:nth-of-type(5):before { content: "Input3"; }
+  td:nth-of-type(6):before { content: "Input11"; }
+  td:nth-of-type(7):before { content: "Input22"; }
+  td:nth-of-type(8):before { content: "Input33";}
+  td:nth-of-type(9):before { content: "Input Vertical1"; }
+  td:nth-of-type(10):before { content: "Input Vertical2"; }
+  td:nth-of-type(11):before { content: "Input Vertical3"; }
+  td:nth-of-type(12):before { content: "Output Vertical1";}
+  td:nth-of-type(13):before { content: "Output Vertical2"; }
+  td:nth-of-type(14):before { content: "Output Vertical3"; }
+  td:nth-of-type(15):before { content: "Diffrential Vertical1"; }
+  td:nth-of-type(16):before { content: "Diffrential Vertical2";}
+  td:nth-of-type(17):before { content: "Diffrential Vertical3";}
+
+
+}
+
+</style>
 </head>
 <body>
+<br>
 <div class="container">
-   <strong> Vertical Calculator<strong>
-</div>
-
-<div class="container">
-
-<form method="POST">
-
-
-<div class="row">
-    <div class="col">
-      Date1
-    </div>
-    <div class="col">
-      Input1
-    </div>
-    <div class="col">
-      Input2
-    </div>
-    <div class="col">
-      Input3
-    </div>
-  </div>
-
-  <div class="row">
-  <div class="col">
-    <input type="date" name="date1" id="date1">
-  </div>
-    <div class="col">
-      <input type="number" name="input1" id="input1">
-    </div>
-    <div class="col">
-    <input type="number" name="input2" id="input2">
-    </div>
-    <div class="col">
-    <input type="number" name="input3" id="input3">
-    </div>
-  </div>
-
-  <div class="row">
-  <div class="col">
-    Date2
-    </div>
-    <div class="col">
-      Input11
-    </div>
-    <div class="col">
-      Input22
-    </div>
-    <div class="col">
-      Input33
-    </div>
-  </div>
-
-  <div class="row">
-  <div class="col">
-  <input type="date" name="date2" id="date">
+<form class="form-inline" method="POST">
+  <label for="date">Date1:</label>
+  <input type="date" id="date" placeholder="" name="date1">
+  <label for="input1">Input1:</label>
+  <input type="number" id="input1" placeholder="" name="input1">
+  <label for="input2">Input2:</label>
+  <input type="number" id="input2" placeholder="" name="input2">
+  <label for="input3">Input3:</label>
+  <input type="number" id="input3" placeholder="" name="input3">
+  <div class="break"></div>
   
-  </div>
-    <div class="col">
-      <input type="number" name="input11" id="input11">
-    </div>
-    <div class="col">
-    <input type="number" name="input22" id="input22">
-    </div>
-    <div class="col">
-    <input type="number" name="input33" id="input33">
-    </div>
-  </div>
-<br> <br>
-<input type="submit" class="btn btn-primary" name="submit" value = "Calculate">
-<input type="button" class="btn btn-primary" value="Show Data">
+  <label for="date">Date2:</label>
+  <input type="date" id="date" placeholder="" name="date2">
+  <label for="input11">Input11:</label>
+  <input type="number" id="input11" placeholder="" name="input11">
+  <label for="input22">Input22:</label>
+  <input type="number" id="input22" placeholder="" name="input22">
+  <label for="input33">Input33:</label>
+  <input type="number" id="input33" placeholder="" name="input33">
+  <br>
+  <br>
+  <input type="submit" name="submit" value ="Calculate" class="btn btn-primary">
 
 
-</div>
 </form>
+</div>
 
-<br>
-<br>
-<div class="table-responsive">
-<table class="table">
- <thead>
+<div class="table-responsive-sm  table-responsive-lg">
+<table class="table table-bordered">
+ <thead class="thead-dark">
     <tr>
       <th scope="col">Date 1</th>
       <th scope="col">Date 2</th>
