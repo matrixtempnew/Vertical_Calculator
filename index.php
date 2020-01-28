@@ -104,7 +104,7 @@ if (isset($_POST['submit'])){
 }
 
 @media
-only screen and (max-width: 1500px) {
+only screen and (max-width: 900px) {
   table, thead, tbody, th, td, tr {
     display: block;
   }
