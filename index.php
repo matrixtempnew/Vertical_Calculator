@@ -114,7 +114,7 @@ only screen and (max-width: 900px) {
     left: -9999px;
     display: block;
   }
-  tr { border: 1px solid #ccc;  display: block;}
+  tr { border: 5px solid #ccc; margin-bottom : 10px; }
   td {
     border: none;
     border-bottom: 1px solid #eee;
@@ -150,7 +150,6 @@ only screen and (max-width: 900px) {
   td:nth-of-type(15):before { content: "Diffrential Vertical1"; }
   td:nth-of-type(16):before { content: "Diffrential Vertical2";}
   td:nth-of-type(17):before { content: "Diffrential Vertical3";}
-
 
 }
 
