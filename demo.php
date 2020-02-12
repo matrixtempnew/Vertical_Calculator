@@ -32,6 +32,20 @@ if (isset($_POST['submit'])){
       $input_3c = $row['input3'];
       }
     
+    $output_v11 = mysqli_query($connection,"SELECT input1 FROM vertical_data ORDER BY input1 DESC LIMIT 1");
+    while ($row = $output_v11->fetch_assoc()){
+      $output_v1t = $row['input1'];
+    }
+  
+    $output_v22 = mysqli_query($connection,"SELECT input2 FROM vertical_data ORDER BY input2 DESC LIMIT 1");
+    while ($row = $output_v22->fetch_assoc()){
+      $output_v2t = $row['input2'];
+    }
+  
+    $output_v33 = mysqli_query($connection,"SELECT input3 FROM vertical_data ORDER BY input3 DESC LIMIT 1");
+    while ($row = $output_v33->fetch_assoc()){
+      $output_v3t = $row['input3'];
+    }  
 
     $input_v1 = ($input11 - $input1 ) / $input1 * 100;
     $input_v2 = ($input22 - $input2) / $input2 * 100;
@@ -226,6 +240,9 @@ while($row = mysqli_fetch_array($query))
   echo "<td>" . $row['input_v2'] . "</td>";
   echo "<td>" . $row['input_v3'] . "</td>";
   echo "<td>" . $row['output_v1'] . "</td>";
+  if($row['output_v1']==10.00){
+    echo "<td style = 'background-color :#00FF00;'>" .$row['output_v1'] ."</td>";
+  }
   echo "<td>" . $row['output_v2'] . "</td>";
   echo "<td>" . $row['output_v3'] . "</td>";
   if($row['diff_v1']==500) {
